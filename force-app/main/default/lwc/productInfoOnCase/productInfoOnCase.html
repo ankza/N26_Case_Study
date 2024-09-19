@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Customer Product Information" icon-name="standard:product">
+        <template if:true={productData}>
+            <div class="slds-p-around_medium">
+                <!-- Product Information Grid -->
+                <div class="slds-grid slds-wrap">
+                    <!-- Cost per Calendar Month -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                        <lightning-icon icon-name="utility:money" size="small" alternative-text="Cost Icon" class="slds-m-right_x-small"></lightning-icon>
+                        <strong>Cost per Calendar Month:</strong>
+                        <p class="slds-text-body_regular slds-m-top_x-small"><b>{costPerMonth}</b></p>
+                    </div>
+
+                    <!-- ATM Fee -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                        <lightning-icon icon-name="utility:money" size="small" alternative-text="ATM Fee Icon" class="slds-m-right_x-small"></lightning-icon>
+                        <strong>ATM Fee:</strong>
+                        <p class="slds-text-body_regular slds-m-top_x-small"><b>{atmFee}</b></p>
+                    </div>
+
+                    <!-- Card Replacement Cost -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-p-around_small">
+                        <lightning-icon icon-name="utility:replace" size="small" alternative-text="Replacement Cost Icon" class="slds-m-right_x-small"></lightning-icon>
+                        <strong>Card Replacement Cost:</strong>
+                        <p class="slds-text-body_regular slds-m-top_x-small"><b>{replacementCost}</b></p>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={productData}>
+            <div class="slds-p-around_medium slds-text-align_center">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                <p class="slds-text-body_small slds-m-top_medium">Loading product information...</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>
